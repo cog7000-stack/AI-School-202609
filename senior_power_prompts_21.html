@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시니어 AI 선교팀 POWER Prompt 21선 (개혁신앙 기반)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #2563eb;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --bg-warm: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --code-bg: #0f172a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; background-color: var(--bg-warm); color: var(--text-main); line-height: 1.7; padding-bottom: 90px; }
+    header { background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%); color: white; padding: 44px 20px 34px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+    .header-badge { display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 6px 16px; border-radius: 20px; font-size: 0.95rem; font-weight: 700; color: #fef08a; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.25); }
+    header h1 { font-family: 'Nanum Myeongjo', serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; line-height: 1.3; }
+    header p { font-size: 1.05rem; color: #cbd5e1; max-width: 780px; margin: 0 auto; word-break: keep-all; }
+    .container { max-width: 980px; margin: -24px auto 0; padding: 0 16px; position: relative; z-index: 10; }
+    
+    .power-banner { background: white; border-radius: 18px; padding: 22px 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); margin-bottom: 16px; border: 1px solid var(--border-color); }
+    .power-title { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .power-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+    .power-item { background: #f8fafc; padding: 10px 14px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 0.92rem; }
+    .power-item strong { display: block; color: #1d4ed8; font-size: 1rem; font-weight: 800; margin-bottom: 2px; }
+
+    .core-mantra-box { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 16px 20px; margin-bottom: 16px; text-align: center; }
+    .core-mantra-box h4 { font-size: 1.15rem; color: var(--primary); font-weight: 800; margin-bottom: 4px; }
+    .core-mantra-box p { font-size: 0.98rem; color: #1e40af; font-weight: 600; word-break: keep-all; }
+
+    .restriction-banner { background: #fffbeb; border-left: 5px solid var(--accent); padding: 18px 20px; border-radius: 12px; margin-bottom: 24px; border: 1px solid #fde68a; }
+    .restriction-banner h3 { font-size: 1.1rem; color: #92400e; margin-bottom: 6px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
+    .restriction-banner p { font-size: 0.95rem; color: #78350f; line-height: 1.65; word-break: keep-all; }
+
+    .nav-tabs { display: flex; background: white; border-radius: 16px; padding: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); gap: 6px; margin-bottom: 24px; border: 1px solid var(--border-color); overflow-x: auto; scrollbar-width: none; }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-btn { flex: 1; min-width: 140px; padding: 13px 10px; border: none; background: transparent; border-radius: 12px; font-size: 0.98rem; font-weight: 700; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s ease; white-space: nowrap; }
+    .nav-btn.active { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25); }
+
+    .subcat-title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #cbd5e1; display: flex; align-items: center; gap: 8px; }
+    .subcat-title::before { content: ""; display: inline-block; width: 8px; height: 18px; background: var(--primary-light); border-radius: 4px; }
+    
+    .prompt-card { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 4px 18px rgba(0,0,0,0.04); padding: 24px; margin-bottom: 24px; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
+    .card-title-group { flex: 1; }
+    .card-num { display: inline-block; font-size: 0.85rem; font-weight: 800; padding: 3px 10px; border-radius: 6px; background: #eff6ff; color: #1d4ed8; margin-bottom: 6px; }
+    .card-midcat { display: inline-block; font-size: 0.82rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: #f1f5f9; color: #475569; margin-left: 6px; }
+    .card-title { font-size: 1.3rem; font-weight: 800; color: #0f172a; line-height: 1.35; }
+    .copy-btn { background: #f8fafc; color: var(--primary); border: 1.5px solid var(--primary-light); padding: 9px 16px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s; flex-shrink: 0; }
+    .copy-btn:hover { background: var(--primary); color: white; }
+    .copy-btn.copied { background: #10b981 !important; border-color: #10b981 !important; color: white !important; }
+    
+    .power-breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; background: #f8fafc; padding: 14px; border-radius: 10px; border: 1px dashed #cbd5e1; margin-bottom: 14px; font-size: 0.92rem; }
+    .pb-item { display: flex; gap: 8px; align-items: baseline; }
+    .pb-badge { font-weight: 800; color: #1d4ed8; background: #e0e7ff; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+    .pb-text { color: #475569; flex: 1; }
+    .pb-text strong { color: #0f172a; }
+
+    .prompt-box { background: var(--code-bg); border-radius: 12px; padding: 18px 20px; color: #f8fafc; font-size: 1.02rem; line-height: 1.75; overflow-x: auto; white-space: pre-wrap; font-family: inherit; border: 1px solid #334155; }
+    .input-slot { margin-top: 12px; background: #eff6ff; border-left: 4px solid var(--primary-light); padding: 10px 14px; border-radius: 6px; font-size: 0.93rem; color: #1e3a8a; }
+
+    .eval-table-box { margin-top: 14px; margin-bottom: 14px; background: white; border: 1px solid var(--border-color); border-radius: 10px; overflow-x: auto; }
+    .eval-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left; }
+    .eval-table th, .eval-table td { border: 1px solid var(--border-color); padding: 10px 12px; }
+    .eval-table th { background: #f1f5f9; color: #0f172a; font-weight: 700; }
+
+    .guide-footer { background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 26px; margin-top: 40px; text-align: center; }
+    @media (max-width: 640px) { header h1 { font-size: 1.6rem; } .card-header { flex-direction: column; } .copy-btn { width: 100%; justify-content: center; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-badge">Senior AI Mission Team Practical Guide</div>
+    <h1>시니어 AI 선교팀 POWER Prompt 21선</h1>
+    <p>장로교 · 복음주의 · 개혁신앙 기반 — “POWER로 묻고, 21번으로 성경적 검증을 완성한다”</p>
+  </header>
+  
+  <main class="container">
+    <!-- POWER 설명 배너 -->
+    <section class="power-banner">
+      <div class="power-title"><span>⚡</span> 시니어 선교팀을 위한 <strong>POWER 프롬프트 공식</strong></div>
+      <div class="power-grid">
+        <div class="power-item"><strong>P (Persona)</strong>누구에게 시킬 것인가 (역할 부여)</div>
+        <div class="power-item"><strong>O (Objective)</strong>무엇을 시킬 것인가 (명확한 목적)</div>
+        <div class="power-item"><strong>W (Workflow)</strong>어떤 순서로 할 것인가 (진행 절차)</div>
+        <div class="power-item"><strong>E (Output)</strong>어떤 결과를 받을 것인가 (원하는 산출물)</div>
+        <div class="power-item"><strong>R (Restrictions)</strong>무엇을 지키고 피할 것인가 (신학적 제한)</div>
+      </div>
+    </section>
+
+    <!-- 시니어 기억법 배너 -->
+    <section class="core-mantra-box">
+      <h4>💡 시니어에게 설명하는 한 문장 핵심</h4>
+      <p>“1번부터 20번은 AI에게 만드는 일을 시키는 프롬프트이고, <strong>21번은 AI가 만든 내용이 성경적으로 맞는지 다시 검사하는 프롬프트</strong>입니다.”</p>
+    </section>
+
+    <!-- 공통 Restrictions 안내 배너 -->
+    <section class="restriction-banner">
+      <h3>🛡️ 모든 프롬프트에 적용되는 [공통 Restrictions 기준]</h3>
+      <p>장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요.</p>
+    </section>
+
+    <!-- 6대 대분류 탭 버튼 -->
+    <nav class="nav-tabs">
+      <button class="nav-btn active" onclick="renderTab(1, this)">1. 신앙생활 (01~04)</button>
+      <button class="nav-btn" onclick="renderTab(2, this)">2. 선교·전도 (05~08)</button>
+      <button class="nav-btn" onclick="renderTab(3, this)">3. 가족·관계 (09~12)</button>
+      <button class="nav-btn" onclick="renderTab(4, this)">4. 신앙자서전 (13~16)</button>
+      <button class="nav-btn" onclick="renderTab(5, this)">5. AI·디지털 (17~20)</button>
+      <button class="nav-btn" onclick="renderTab(6, this)">6. 신학 검증 (21)</button>
+    </nav>
+
+    <!-- 동적 렌더링 영역 -->
+    <div id="prompt-container"></div>
+
+    <div class="guide-footer">
+      <h4>⚡ Senior AI Mission Team 사역 지침</h4>
+      <p>인공지능은 훌륭한 비서이지만 신앙적 분별의 주체가 될 수 없습니다.<br>
+      모든 생성물은 장로교 개혁신앙과 웨스트민스터 신앙고백의 원리에 따라 <strong>21번 검증 Prompt</strong>로 철저히 확인한 후 사용해 주세요.</p>
+    </div>
+  </main>
+
+  <script>
+    const prompts21 = [
+      // 대분류 1. 신앙생활과 말씀 (1~4)
+      {
+        id: 1, sec: 1, mid: "말씀 묵상", t: "매일 QT 묵상 만들기",
+        p: "당신은 성경 해석과 목회에 능숙한 장로교 복음주의·개혁신앙의 목회자입니다.",
+        o: "다음 성경 본문을 시니어가 개인적으로 묵상할 수 있는 QT로 작성해주세요.",
+        w: "본문 문맥 → 핵심 말씀 → 중요한 원어 한 단어 → 복음과의 연결 → 오늘의 적용 → 기도 순으로 작성해주세요.",
+        e: "약 5분 정도 읽을 수 있는 따뜻하고 묵상적인 QT로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 또한 본문의 문맥과 원래 의미에서 벗어난 억지 적용이나 지나친 영적 해석을 피해주세요.",
+        slot: "본문: [성경본문 입력]"
+      },
+      {
+        id: 2, sec: 1, mid: "기도", t: "가족을 위한 기도문",
+        p: "당신은 장로교 복음주의·개혁신앙의 목회자입니다.",
+        o: "우리 가족을 위한 기도문을 작성해주세요.",
+        w: "하나님께 감사 → 믿음 → 가족의 필요 → 자녀와 손주 → 하나님의 뜻과 인도하심 순으로 작성해주세요.",
+        e: "약 1분 이내에 기도할 수 있는 자연스럽고 따뜻한 기도문을 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 또한 하나님께 자신의 뜻을 강요하는 기도가 아니라 하나님의 뜻과 섭리를 신뢰하는 기도가 되게 해주세요.",
+        slot: "가족 상황: [내용 입력]"
+      },
+      {
+        id: 3, sec: 1, mid: "성경공부", t: "성경을 쉽게 설명받기",
+        p: "당신은 시니어에게 성경을 쉽게 가르치는 장로교 복음주의·개혁주의 성경 교사입니다.",
+        o: "다음 성경 본문을 초보자도 이해할 수 있도록 쉽게 설명해주세요.",
+        w: "역사적·문화적 배경 → 본문 문맥 → 핵심 단어와 원어 → 중심주제 → 그리스도와 복음 → 오늘의 적용 순으로 설명해주세요.",
+        e: "시니어가 이해하기 쉬운 설명과 마지막에 핵심 한 문장을 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 특정 구절만 떼어 문맥과 상관없이 해석하지 말고, 원어의 의미도 문맥에 맞게 설명해주세요.",
+        slot: "본문: [성경본문 입력]"
+      },
+      {
+        id: 4, sec: 1, mid: "간증", t: "신앙 간증문 작성",
+        p: "당신은 장로교 복음주의·개혁신앙을 이해하는 신앙 간증문 편집자입니다.",
+        o: "나의 경험을 하나님의 은혜가 드러나는 간증문으로 정리해주세요.",
+        w: "과거의 상황 → 어려움 → 하나님의 인도하심 → 변화 → 현재의 믿음 → 감사 순으로 작성해주세요.",
+        e: "교회에서 약 3분 정도 발표할 수 있는 자연스러운 간증문으로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 나의 노력이나 성공을 과장하거나 모든 일을 기적처럼 표현하지 말고, 하나님께서 베푸신 은혜가 드러나게 해주세요.",
+        slot: "나의 경험: [내용 입력]"
+      },
+
+      // 대분류 2. 선교 및 전도 (5~8)
+      {
+        id: 5, sec: 2, mid: "개인전도", t: "친구에게 복음 전하기",
+        p: "당신은 장로교 복음주의·개혁신앙에 기초하여 복음을 전하는 전도자입니다.",
+        o: "교회를 다니지 않는 친구에게 복음을 자연스럽게 소개하는 메시지를 작성해주세요.",
+        w: "안부 → 상대방의 상황에 대한 공감 → 하나님과 인간의 관계 → 죄와 은혜 → 예수 그리스도의 복음 → 자연스러운 초청 순으로 작성해주세요.",
+        e: "카카오톡이나 문자로 보낼 수 있는 5~7문장의 자연스러운 메시지로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 상대방을 정죄하거나 믿음을 강요하지 말고, 구원을 인간의 선행이나 공로의 결과처럼 표현하지 마세요.",
+        slot: "친구의 상황: [내용 입력]"
+      },
+      {
+        id: 6, sec: 2, mid: "선교보고", t: "선교 소식 작성",
+        p: "당신은 장로교 복음주의·개혁신앙의 선교 코디네이터입니다.",
+        o: "다음 내용을 성도들에게 전달할 선교 소식으로 정리해주세요.",
+        w: "현지 상황 → 사역 내용 → 감사 제목 → 필요한 도움 → 기도 제목 순으로 작성해주세요.",
+        e: "A4 반 페이지 정도의 읽기 쉬운 선교보고로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 선교사나 사역자를 영웅화하지 말고, 확인되지 않은 숫자·성과·사건을 만들어내지 마세요.",
+        slot: "선교 현황: [내용 입력]"
+      },
+      {
+        id: 7, sec: 2, mid: "디지털 선교", t: "전도용 SNS 글 만들기",
+        p: "당신은 장로교 복음주의·개혁신앙을 가진 디지털 선교사입니다.",
+        o: "다음 성경 말씀을 바탕으로 비기독교인도 자연스럽게 읽을 수 있는 SNS 글을 작성해주세요.",
+        w: "삶의 질문 → 공감 → 성경 말씀 → 복음 → 소망 → 생각해 볼 질문 순으로 작성해주세요.",
+        e: "Facebook이나 Instagram에 올릴 수 있는 약 200~300자의 글로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 공포나 죄책감을 지나치게 자극하지 말고, 기독교 용어를 모르는 사람도 이해할 수 있게 작성해주세요.",
+        slot: "본문: [성경말씀 입력]"
+      },
+      {
+        id: 8, sec: 2, mid: "관계전도", t: "교회 초청 메시지",
+        p: "당신은 장로교 복음주의·개혁신앙을 가진 성도입니다.",
+        o: "친구를 예배나 교회 행사에 자연스럽게 초대하는 메시지를 작성해주세요.",
+        w: "안부 → 행사 소개 → 함께하고 싶은 이유 → 부담 없는 초청 순으로 작성해주세요.",
+        e: "문자나 카카오톡으로 바로 보낼 수 있는 4~5문장의 메시지로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. “교회에 오면 모든 문제가 해결된다”는 식의 표현이나 강압적인 초청은 피해주세요.",
+        slot: "행사: [행사명 / 날짜 / 장소]"
+      },
+
+      // 대분류 3. 가족과 관계 (9~12)
+      {
+        id: 9, sec: 3, mid: "부모와 자녀", t: "자녀에게 보내는 매일의 메시지",
+        p: "당신은 장로교 복음주의·개혁신앙을 가진 따뜻한 부모입니다.",
+        o: "성인이 된 자녀에게 오늘 아침 보낼 짧은 메시지를 작성해주세요.",
+        w: "안부 → 사랑 → 격려 → 짧은 축복 순으로 작성해주세요.",
+        e: "2~4문장의 자연스럽고 따뜻한 메시지로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 설교하거나 잔소리하는 표현을 피하고, 자녀의 성공보다 믿음과 삶을 축복해주세요.",
+        slot: "오늘 전하고 싶은 내용: [내용 입력]"
+      },
+      {
+        id: 10, sec: 3, mid: "조부모와 손주", t: "손주에게 보내는 메시지",
+        p: "당신은 장로교 복음주의·개혁신앙 안에서 손주를 사랑하는 조부모입니다.",
+        o: "손주에게 사랑과 격려를 전하는 짧은 메시지를 작성해주세요.",
+        w: "안부 → 관심 → 격려 → 사랑 → 축복 순으로 작성해주세요.",
+        e: "손주가 부담 없이 읽을 수 있는 3~4문장의 메시지로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 성적·직장·재정적 성취를 하나님의 복과 동일시하지 말고, 존재 자체를 사랑하고 축복하는 분위기로 작성해주세요.",
+        slot: "손주의 상황: [내용 입력]"
+      },
+      {
+        id: 11, sec: 3, mid: "인간관계", t: "친구·지인에게 보내는 안부",
+        p: "당신은 장로교 복음주의·개혁신앙의 사랑과 배려를 삶에서 실천하려는 그리스도인입니다.",
+        o: "오랫동안 연락하지 못한 친구에게 안부 메시지를 작성해주세요.",
+        w: "인사 → 근황 질문 → 건강과 생활에 대한 관심 → 만남 제안 순으로 작성해주세요.",
+        e: "카카오톡으로 바로 보낼 수 있는 4~5문장의 자연스러운 메시지로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 신앙 내용을 억지로 끼워 넣지 말고 그리스도인의 사랑과 배려가 자연스럽게 드러나게 해주세요.",
+        slot: "대상 친구: [친구의 상황 및 호칭 입력]"
+      },
+      {
+        id: 12, sec: 3, mid: "감사와 관계", t: "감사 메시지",
+        p: "당신은 장로교 복음주의·개혁신앙 안에서 감사의 삶을 중요하게 여기는 그리스도인입니다.",
+        o: "다음 사람에게 감사의 마음을 전하는 메시지를 작성해주세요.",
+        w: "감사한 일 → 받은 도움 → 나의 마음 → 축복 순으로 작성해주세요.",
+        e: "5문장 이내의 따뜻하고 자연스러운 메시지로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 과장되거나 지나치게 형식적인 표현을 피하고 진심 어린 감사가 느껴지게 해주세요.",
+        slot: "대상: [사람] / 감사한 일: [내용]"
+      },
+
+      // 대분류 4. 신앙 자서전과 삶의 기록 (13~16)
+      {
+        id: 13, sec: 4, mid: "신앙 자서전", t: "신앙 자서전 작성",
+        p: "당신은 장로교 복음주의·개혁신앙을 이해하는 신앙 자서전 작가입니다.",
+        o: "나의 인생을 하나님의 섭리와 은혜의 관점에서 기록하도록 도와주세요.",
+        w: "어린 시절 → 신앙을 갖게 된 과정 → 청년기 → 결혼 → 가족 → 직장 → 교회 → 고난 → 사역 → 현재의 믿음 순으로 질문해주세요.",
+        e: "한 번에 하나씩 질문하고, 답변이 충분히 모이면 자연스러운 신앙 자서전으로 정리해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 내 인생을 영웅적인 성공 이야기로 만들지 말고 하나님의 은혜와 섭리가 드러나도록 해주세요.",
+        slot: "시작 요청: '첫 번째 질문(어린 시절과 고향 이야기)을 시작해 주세요.'"
+      },
+      {
+        id: 14, sec: 4, mid: "회고록", t: "인생 회고록 작성",
+        p: "당신은 장로교 복음주의·개혁신앙의 세계관을 이해하는 회고록 전문 인터뷰어입니다.",
+        o: "내 인생의 중요한 기억들을 회고록으로 남길 수 있도록 도와주세요.",
+        w: "어린 시절 → 부모님 → 학교 → 직장 → 결혼 → 자녀 → 기쁨 → 실패와 아픔 → 신앙 → 감사 순으로 질문해주세요.",
+        e: "한 번에 질문 하나씩 진행하고, 답변을 모아 읽기 쉬운 회고록으로 정리해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 모든 사건을 억지로 영적인 의미로 해석하거나 하나님의 직접적인 계시처럼 표현하지 마세요.",
+        slot: "시작 요청: '첫 번째 질문(유년기와 부모님에 대한 기억)을 정중하게 건네주세요.'"
+      },
+      {
+        id: 15, sec: 4, mid: "사진 회고", t: "옛 사진으로 추억 기록하기",
+        p: "당신은 장로교 복음주의·개혁신앙의 가치관을 이해하는 가족 역사 기록가입니다.",
+        o: "내가 제공한 옛 사진과 설명을 바탕으로 가족과 다음 세대에게 남길 추억을 기록해주세요.",
+        w: "사진에서 확인되는 내용 → 기억을 돕는 질문 → 나의 답변 → 추억 이야기 → 감사 순으로 진행해주세요.",
+        e: "사진마다 제목과 약 300자의 이야기를 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 사진만 보고 사람의 이름·장소·날짜·사건을 추측하거나 만들어내지 마세요.",
+        slot: "[사진 업로드 후 사진에 얽힌 짧은 기억 한 줄 입력]"
+      },
+      {
+        id: 16, sec: 4, mid: "신앙 유산", t: "자녀와 손주에게 남기는 삶의 지혜",
+        p: "당신은 장로교 복음주의·개혁신앙의 관점에서 다음 세대에게 신앙 유산을 전달하도록 돕는 편집자입니다.",
+        o: "평생 살아오면서 배운 믿음과 삶의 교훈을 자녀와 손주에게 남길 글로 작성해주세요.",
+        w: "신앙 → 가족 → 일 → 돈 → 인간관계 → 실패 → 고난 → 용서 → 감사 → 소망 순으로 질문해주세요.",
+        e: "「사랑하는 자녀와 손주들에게 남기는 10가지 이야기」 형식으로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 성공 비결이나 훈계집처럼 만들지 말고 삶에서 경험한 은혜와 지혜를 들려주는 방식으로 작성해주세요.",
+        slot: "전수하고 싶은 이야기 메모: [자유롭게 입력]"
+      },
+
+      // 대분류 5. AI·문화·디지털 생활 (17~20)
+      {
+        id: 17, sec: 5, mid: "AI 찬양 제작", t: "Suno로 찬양 만들기",
+        p: "당신은 성경과 예배신학을 이해하는 장로교 복음주의·개혁신앙의 찬양 작사가입니다.",
+        o: "다음 성경 본문을 바탕으로 Suno에서 사용할 찬양을 만들어주세요.",
+        w: "본문 문맥 → 중심 신학 → 찬양 제목 → Verse → Chorus → Bridge → Suno Style Prompt 순으로 작성해주세요.",
+        e: "① 제목\n② 한국어 찬양 가사 ([Verse], [Chorus] 구조)\n③ Suno Style Prompt (영문 키워드)\n④ 추천 음악 분위기\n순으로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 인간의 행복·성공·물질적 축복보다 하나님과 그리스도가 중심이 되게 하고 기존 찬양의 가사를 복제하지 마세요.",
+        slot: "본문: [성경본문 입력]"
+      },
+      {
+        id: 18, sec: 5, mid: "여행", t: "시니어 여행 계획",
+        p: "당신은 장로교 복음주의·개혁신앙의 가치관을 존중하는 시니어 전문 여행 플래너입니다.",
+        o: "다음 지역을 시니어가 무리 없이 여행할 수 있도록 일정을 만들어주세요.",
+        w: "이동 → 관광 → 식사 → 휴식 → 숙소 순으로 계획해주세요.",
+        e: "오전 → 점심 → 오후 → 저녁 순으로 하루 일정을 정리해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 건강과 안전을 우선하고 확인되지 않은 영업시간·가격·교통정보를 사실처럼 만들지 마세요. 주일 일정이 포함된다면 예배 가능성도 고려해주세요.",
+        slot: "여행지: [지역] / 기간: [날짜]"
+      },
+      {
+        id: 19, sec: 5, mid: "디지털 생활", t: "스마트폰 사용법 배우기",
+        p: "당신은 장로교회 시니어 성도에게 스마트폰과 디지털 기술을 쉽게 가르치는 친절한 IT 강사입니다.",
+        o: "다음 스마트폰 기능을 사용하는 방법을 단계별로 설명해주세요.",
+        w: "현재 상태 확인 → 메뉴 찾기 → 실행 → 결과 확인 순으로 설명해주세요.",
+        e: "1 → 2 → 3 → 4 단계로 아주 쉽게 설명해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 개인정보·비밀번호·금융정보·사기 링크 등의 위험이 있으면 반드시 알려주고, 확인되지 않은 메뉴 이름이나 기능을 추측하지 마세요.",
+        slot: "기종: [Samsung / iPhone] / 하고 싶은 일: [내용 입력]"
+      },
+      {
+        id: 20, sec: 5, mid: "생활과 영성", t: "하루 감사일기 작성",
+        p: "당신은 장로교 복음주의·개혁신앙의 관점에서 일상의 은혜를 돌아보도록 돕는 글쓰기 동반자입니다.",
+        o: "오늘 경험한 일을 바탕으로 감사일기를 작성해주세요.",
+        w: "오늘 있었던 일 → 기억에 남는 사람 → 기쁨 또는 어려움 → 돌아봄 → 감사 → 짧은 기도 순으로 작성해주세요.",
+        e: "약 300~500자의 자연스럽고 따뜻한 감사일기로 작성해주세요.",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되도록 작성해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 고난이나 슬픔을 무조건 좋은 일이라고 포장하지 말고, 어려움 속에서도 하나님의 주권과 은혜를 신뢰하는 방향으로 작성해주세요.",
+        slot: "오늘 있었던 일: [내용 입력]"
+      },
+
+      // 대분류 6. AI 결과 검증 (21)
+      {
+        id: 21, sec: 6, mid: "신학적 검증", t: "작성된 내용을 성경적·신학적으로 검증하기",
+        p: "당신은 성경해석학, 조직신학, 역사신학에 능숙하며 장로교 복음주의·개혁신앙과 웨스트민스터 신앙고백 및 대·소요리문답을 이해하는 신학 검토자입니다.",
+        o: "아래의 설교, QT, 기도문, 간증, 전도문, 찬양 가사 또는 신앙 관련 글이 성경적으로 정확하고 신학적으로 안전한지 검증해주세요.",
+        w: "다음 10가지 질문으로 검토해주세요.\n1. 성경이 실제로 그렇게 말하는가? (본문의 문맥과 저자의 의도에 충실한지 확인)\n2. 본문 → 해석 → 신학 → 적용의 과정이 자연스러운가? (논리적·해석적 비약 점검)\n3. 본문이나 자료에 없는 내용을 덧붙이지 않았는가? (추측·과장·임의 작성 확인)\n4. 원어·성경구절·인용문·역사적 사실이 정확한가? (확인 불가 시 [확인 필요] 표시)\n5. 예수 그리스도의 복음이 중심에 있는가? (인간의 노력/성공보다 하나님의 은혜 확인)\n6. 번영신학·도덕주의·성공주의 요소가 있는가? (해당 부분과 이유 명시)\n7. 하나님의 주권과 은혜가 올바르게 표현되어 있는가? (자기계발/인간중심 점검)\n8. 장로교 복음주의·개혁신앙과 충돌하는 내용이 있는가? (웨스트민스터 기준 대조)\n9. 목회적으로 안전한가? (성도에게 잘못된 죄책감·두려움 방지)\n10. 내 이름으로 가르치거나 선포해도 책임질 수 있는 내용인가? (구체적 수정안)",
+        e: "다음 표로 정리해주세요.\n[검토 항목 | 평가 (적절 / 수정 필요 / 확인 필요) | 구체적 이유]\n- 성경 본문 충실성\n- 해석의 논리성\n- 사실·원어 정확성\n- 복음 중심성\n- 개혁신학 일치성\n- 목회적 안전성\n\n마지막에는 다음 세 가지를 작성해주세요.\n① 그대로 사용해도 되는 부분\n② 반드시 수정해야 할 부분\n③ 수정 전 → 수정 후",
+        r: "장로교 복음주의·개혁신앙의 관점을 유지해주세요. 성경을 최종 권위로 삼고, 성경이나 입력 자료에 없는 내용을 임의로 만들어내지 마세요. 번영신학, 도덕주의, 인간 중심의 성공주의를 피하고, 하나님의 주권과 은혜, 예수 그리스도의 복음이 중심이 되는지 엄격하게 검토해주세요. 사실이나 출처가 불확실한 내용은 사실처럼 단정하지 말고 [확인 필요]라고 표시해주세요. 문제가 있는 내용을 좋게 보이도록 완화하지 말고 정확하게 지적해주세요. 원어, 인용문, 역사적 사실, 통계, 신학적 주장에 확실한 근거가 없으면 추측하지 말고 [확인 필요]라고 표시해주세요. 웨스트민스터 문서를 인용할 경우 실제 내용과 일치하는지 확인한 뒤 사용해주세요.",
+        slot: "검증할 내용:\n[여기에 검증할 내용을 붙여 넣으세요]"
+      }
+    ];
+
+    function renderTab(secId, btn) {
+      if (btn) {
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+
+      const filtered = prompts21.filter(p => p.sec === secId);
+      const container = document.getElementById('prompt-container');
+      container.innerHTML = '';
+
+      let lastMid = '';
+      filtered.forEach(it => {
+        if (it.mid !== lastMid) {
+          lastMid = it.mid;
+          const subTitle = document.createElement('h3');
+          subTitle.className = 'subcat-title';
+          subTitle.innerText = lastMid;
+          container.appendChild(subTitle);
+        }
+
+        const numStr = it.id < 10 ? '0' + it.id : '' + it.id;
+        const promptFullText = `[역할 / Persona]\n${it.p}\n\n[목적 / Objective]\n${it.o}\n\n[진행 순서 / Workflow]\n${it.w}\n\n[결과 형태 / Expected Output]\n${it.e}\n\n[제한 조건 / Restrictions]\n${it.r}\n\n${it.slot}`;
+
+        const article = document.createElement('article');
+        article.className = 'prompt-card';
+        if (it.id === 21) article.style.border = '2px solid #2563eb';
+
+        let extraOutputUI = '';
+        if (it.id === 21) {
+          extraOutputUI = `
+            <div class="eval-table-box">
+              <table class="eval-table">
+                <thead>
+                  <tr><th>검토 항목</th><th>평가</th><th>이유 및 수정 제안</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>성경 본문 충실성</td><td>적절 / 수정 필요</td><td>본문 문맥 및 저자의 의도 충실도</td></tr>
+                  <tr><td>해석의 논리성</td><td>적절 / 수정 필요</td><td>해석 및 적용의 논리적 비약 여부</td></tr>
+                  <tr><td>사실·원어 정확성</td><td>적절 / 확인 필요</td><td>원어, 인용문, 역사적 사실의 정확성</td></tr>
+                  <tr><td>복음 중심성</td><td>적절 / 수정 필요</td><td>인간 행위보다 하나님의 은혜와 복음 드러남 여부</td></tr>
+                  <tr><td>개혁신학 일치성</td><td>적절 / 수정 필요</td><td>웨스트민스터 표준문서 일치 여부</td></tr>
+                  <tr><td>목회적 안전성</td><td>적절 / 수정 필요</td><td>성도에게 왜곡된 죄책감이나 두려움을 주지 않는지</td></tr>
+                </tbody>
+              </table>
+            </div>
+          `;
+        }
+
+        article.innerHTML = `
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="card-num">${numStr}</span>
+              <span class="card-midcat">${it.mid}</span>
+              <h4 class="card-title">${it.t}</h4>
+            </div>
+            <button class="copy-btn" onclick="copyCardPrompt('pbox-${it.id}', this)">복사하기</button>
+          </div>
+          <div class="power-breakdown">
+            <div class="pb-item"><span class="pb-badge">P</span><span class="pb-text"><strong>역할:</strong> ${it.p}</span></div>
+            <div class="pb-item"><span class="pb-badge">O</span><span class="pb-text"><strong>목적:</strong> ${it.o}</span></div>
+            <div class="pb-item"><span class="pb-badge">W</span><span class="pb-text"><strong>진행:</strong> ${it.w.replace(/\n/g, ' ')}</span></div>
+            <div class="pb-item"><span class="pb-badge">E</span><span class="pb-text"><strong>형태:</strong> ${it.e.split('\n')[0]}</span></div>
+            <div class="pb-item"><span class="pb-badge">R</span><span class="pb-text"><strong>제한:</strong> 개혁신앙 기준 준수, 번영신학/도덕주의 배제</span></div>
+          </div>
+          ${extraOutputUI}
+          <pre class="prompt-box" id="pbox-${it.id}">${promptFullText}</pre>
+          <div class="input-slot">💡 <strong>입력 안내:</strong> 대괄호 <code>[ ]</code> 안의 내용을 본인의 실제 성경 본문이나 선교 현장 상황에 맞추어 수정한 후 복사하세요.</div>
+        `;
+        container.appendChild(article);
+      });
+      window.scrollTo({ top: 160, behavior: 'smooth' });
+    }
+
+    function copyCardPrompt(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const origin = btn.innerHTML;
+        btn.innerHTML = '✔ 복사 완료!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.innerHTML = origin; btn.classList.remove('copied'); }, 2000);
+      }).catch(() => alert('텍스트를 직접 드래그하여 복사해 주세요.'));
+    }
+
+    // 초기 실행: 1번 탭 표시
+    renderTab(1);
+  </script>
+</body>
+</html>
